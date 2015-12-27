@@ -1,0 +1,22 @@
+<html ng-app="app">
+	<head>
+		<title>AngularSample</title>
+		<script src="/js/angular.min.js"></script>
+		<script type="text/javascript">
+			angular.module("app", [])
+				.controller("controller", function($scope, $http) {
+					$http.get('test.json')
+						.success(function(data, status, headers, config) {
+							console.log(data.name);
+							$scope.name = data.name
+						})
+						.error(function(data, status, headers, config) {
+							console.log('error');
+						});
+				});
+		</script>
+	</head>
+	<body ng-controller="controller">
+		<li>{{name}}</li>
+	</body>
+</html>
