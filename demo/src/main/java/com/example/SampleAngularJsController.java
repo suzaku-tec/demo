@@ -11,5 +11,4 @@ public class SampleAngularJsController {
 		return "angularSample";
 	}
 
-	
 }
