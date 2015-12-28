@@ -6,10 +6,10 @@
 		<script type="text/javascript">
 			angular.module("app", [])
 				.controller("controller", function($scope, $http) {
-					$http.get('test.json')
+					$http.get('/angular/data')
 						.success(function(data, status, headers, config) {
 							console.log(data.name);
-							$scope.name = data.name
+							$scope.list = data
 						})
 						.error(function(data, status, headers, config) {
 							console.log('error');
@@ -18,6 +18,6 @@
 		</script>
 	</head>
 	<body ng-controller="controller">
-		<li><span ng-bind="name">テスト</span></li>
+		<li ng-repeat="value in list">{{value.name}}</li>
 	</body>
 </html>
